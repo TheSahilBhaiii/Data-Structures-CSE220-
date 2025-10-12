@@ -1,0 +1,27 @@
+Given an unsorted array A of size N that contains only non-negative integers, find a continuous
+sub-array which adds to a given number S.
+In case of multiple subarrays, return the subarray which comes first on moving from left to right.
+Example 1:
+Input:
+N = 5, S = 12
+A = [1,2,3,7,5]
+Output: 2 4
+Explanation: The sum of elements
+from 2nd position to 4th position
+is 12.
+Example 2:
+Input:
+N = 10, S = 15
+A = [1,2,3,4,5,6,7,8,9,10]
+Output: 1 5
+Explanation: The sum of elements
+from 1st position to 5th position
+is 15.
+
+
+Solution:
+adding until we get close to the value given S
+3 cases:
+1. if sum<S then we will add array element to the sum and endcounter will be i+1
+2. if sum==S then we wil break the loop 
+3. if sum>S then we will reset the first counter and minus the first value from the array 
