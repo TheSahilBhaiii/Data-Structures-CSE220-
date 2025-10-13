@@ -3,6 +3,7 @@ public class q3 {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int sum=0;
+        int total=0;
         int starting_counter=0;
         int ending_counter=0;
         System.out.println("Enter the length of the array");
@@ -14,7 +15,14 @@ public class q3 {
         for(int i=0;i<N;i++){
             arr[i]=sc.nextInt();
         }
-
+        for(int i=0;i<N;i++){
+            total+=arr[i];
+        }
+        if(total<S){
+            System.out.println("The sum cannot be found");
+            
+        }
+        else{
         for(int i=0;i<N;i++){
             if(sum<S){
                 sum+=arr[i];
@@ -32,7 +40,7 @@ public class q3 {
             }
         }
         System.out.println("Output: "+starting_counter+" "+ending_counter);
-        
+    }
 
     }
     
