@@ -1,0 +1,15 @@
+ Given an array of N positive integers and an integer X. The task is to find the frequency of X in
+ the array.
+ Example 1:
+ Input:
+ N = 5
+ arr = [1, 1, 1, 1, 1]
+ X = 1
+ Output:
+ 5
+ Explanation: The frequency of 1 is 5.
+
+ Solution:
+ checking if arr[i]==X 
+ if yes then counter++
+ else continue
