@@ -9,7 +9,30 @@ class AssgnTask4{
 
         //Print the message inside of this method
         //TO DO
+        int n=board.length;
 
+        for(int i=0;i<n/2;i++){
+            int start=i;
+            int end=n-i-1;
+
+            for(int r=0;r<i+1;r++){
+                for(int j=0;j<end-start;j++){
+                    char temp=board[start][start+j];
+
+                    board[start][start+j]=board[end-j][start];
+                    board[end-j][start]=board[end][end-j];
+                    board[end][end-j]=board[start+j][end];
+                    board[start+j][end]=temp;
+                    
+                }
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                System.out.print(board[i][j]);
+            }
+        }
+        System.out.println();
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE

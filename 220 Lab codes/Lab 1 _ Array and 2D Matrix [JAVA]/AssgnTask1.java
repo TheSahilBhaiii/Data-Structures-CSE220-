@@ -10,8 +10,31 @@ class AssgnTask1{
         //After rotation the Matrix should be printed inside the method
         //Only the integer row number is to be returned
 
-        //TO DO
-        return null;
+        int r=matrix.length;
+        Integer counter=examWeek%r;
+
+        for(int i=1;i<counter;i++){
+        String last[]=matrix[r-1];
+           for(int j=r-1;j>0;j--){
+            matrix[j]=matrix[j-1];
+           }
+           matrix[0]=last; 
+        }
+
+        for(int i=0;i<r;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                System.out.print("|"+matrix[i][j]+"|");
+            }
+            System.out.println(" ");
+        }
+        for(int i=0;i<r;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                if("AA".equals(matrix[i][j])){
+                    return i+1;
+                }
+            }
+        }
+        return 0;
     }
 
     //DO NOT CHANGE ANY DRIVER CODE BELOW THIS LINE
