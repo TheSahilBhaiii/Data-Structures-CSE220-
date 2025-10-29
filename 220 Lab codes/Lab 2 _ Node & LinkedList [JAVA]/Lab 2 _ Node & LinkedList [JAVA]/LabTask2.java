@@ -11,6 +11,21 @@ public class LabTask2 {
         //TO DO
 
         //remove the following line when you're ready to return the new head
+        Node n=head;
+        int length=0;
+        while(n.next!=null){
+            n=n.next;
+            length++;
+        }
+        int counter=13%length;
+
+        for(int i=0;i<length;i++){
+            if((int)n.elem%counter==0&&(int)n.elem!=0){
+            Node X=new Node(n.elem);
+            
+            }
+        }
+
         return null;
     }
 
