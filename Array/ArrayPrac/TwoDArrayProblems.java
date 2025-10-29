@@ -24,32 +24,32 @@ public class TwoDArrayProblems {
        10 8 -12
        Output: 15
     ------------------------------------------------------------------- */
-    // public static int diagonalDifference(int[][] matrix) {
-    //     int M=matrix.length;
-    //     int primsum=0;
-    //     int secsum=0;
-    //     int diff=0;
-    //     int counter=M-1;
-    //     for(int i=0;i<M;i++){
-    //         for(int j=0;j<M;j++){
-    //             if(i==j){
-    //                 primsum+=matrix[i][j];
-    //             }
-    //         }
-    //     }
-    //     for(int i=0;i<M;i++){
-    //             secsum+=matrix[i][counter];
-    //             counter--;
-    //         }
+    public static int diagonalDifference(int[][] matrix) {
+        int M=matrix.length;
+        int primsum=0;
+        int secsum=0;
+        int diff=0;
+        int counter=M-1;
+        for(int i=0;i<M;i++){
+            for(int j=0;j<M;j++){
+                if(i==j){
+                    primsum+=matrix[i][j];
+                }
+            }
+        }
+        for(int i=0;i<M;i++){
+                secsum+=matrix[i][counter];
+                counter--;
+            }
         
-    //     if(primsum>secsum){
-    //     diff=Math.abs(primsum-secsum);
-    //     }
-    //     else{
-    //         diff=Math.abs(secsum-primsum);
-    //     }
-    //     return diff;
-    // }
+        if(primsum>secsum){
+        diff=Math.abs(primsum-secsum);
+        }
+        else{
+            diff=Math.abs(secsum-primsum);
+        }
+        return diff;
+    }
 
     /* -------------------------------------------------------------------
        🧩 Problem 2: Spiral Traversal
@@ -62,42 +62,42 @@ public class TwoDArrayProblems {
        7 8 9
        Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
     ------------------------------------------------------------------- */
-    // public static int[] spiralOrder(int[][] matrix) {
-    //     int M=matrix.length;
-    //     int spiral[]=new int[M*M];
-    //     int top=0;
-    //     int left=0;
-    //     int right=M-1;
-    //     int bottom=M-1;
-    //     int idx=0;
-    //     while(top<=bottom && left<=right){
-    //     for(int i=left;i<=right;i++){
-    //         spiral[idx]=matrix[top][i];
-    //         idx++;
-    //     }
-    //     top++;
-    //     for(int i=top;i<=bottom;i++){
-    //         spiral[idx]=matrix[i][right];
-    //         idx++;
-    //     }
-    //     right--;
-    //     if(top<=bottom){
-    //     for(int i=right;i>=left;i--){
-    //         spiral[idx]=matrix[bottom][i];
-    //         idx++;
-    //     }
-    // }
-    //     bottom--;
-    //     if(left<=right){
-    //     for(int i=bottom;i>=top;i--){
-    //         spiral[idx]=matrix[i][left];
-    //         idx++;
-    //     }
-    //     left++;
-    // }
-    //     }
-    //     return spiral;
-    //     }
+    public static int[] spiralOrder(int[][] matrix) {
+        int M=matrix.length;
+        int spiral[]=new int[M*M];
+        int top=0;
+        int left=0;
+        int right=M-1;
+        int bottom=M-1;
+        int idx=0;
+        while(top<=bottom && left<=right){
+        for(int i=left;i<=right;i++){
+            spiral[idx]=matrix[top][i];
+            idx++;
+        }
+        top++;
+        for(int i=top;i<=bottom;i++){
+            spiral[idx]=matrix[i][right];
+            idx++;
+        }
+        right--;
+        if(top<=bottom){
+        for(int i=right;i>=left;i--){
+            spiral[idx]=matrix[bottom][i];
+            idx++;
+        }
+    }
+        bottom--;
+        if(left<=right){
+        for(int i=bottom;i>=top;i--){
+            spiral[idx]=matrix[i][left];
+            idx++;
+        }
+        left++;
+    }
+        }
+        return spiral;
+        }
     /* -------------------------------------------------------------------
        🧩 Problem 3: Rotate Matrix 90° Clockwise
        Modify the matrix in-place to rotate it 90 degrees clockwise.
@@ -112,20 +112,20 @@ public class TwoDArrayProblems {
        8 5 2
        9 6 3
     ------------------------------------------------------------------- */
-    // public static void rotate90Clockwise(int[][] matrix) {
-    //     int n=matrix.length;
-    //     int rotatedmatrix[][]=new int[n][n];
+    public static void rotate90Clockwise(int[][] matrix) {
+        int n=matrix.length;
+        int rotatedmatrix[][]=new int[n][n];
 
-    //     for(int i=0;i<n;i++){
-    //         for(int j=0;j<n;j++){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
 
-    //             rotatedmatrix[j][n-1-i]=matrix[i][j];
+                rotatedmatrix[j][n-1-i]=matrix[i][j];
             
-    //     }
-    // }
-    //     printMatrix(rotatedmatrix);
+        }
+    }
+        printMatrix(rotatedmatrix);
         
-    // }
+    }
     /* -------------------------------------------------------------------
        🧩 Problem 4: Row with Maximum Sum
        Find the row with the maximum sum and return its index (0-based).
@@ -137,32 +137,32 @@ public class TwoDArrayProblems {
        7 8 9
        Output: 2
     ------------------------------------------------------------------- */
-    // public static int rowWithMaxSum(int[][] matrix) {
-    //     int M=matrix.length;
-    //     int N=matrix[0].length;
-    //     int sumrow[]=new int[M];
-    //     int sum=0;
-    //     int max=Integer.MIN_VALUE;;
+    public static int rowWithMaxSum(int[][] matrix) {
+        int M=matrix.length;
+        int N=matrix[0].length;
+        int sumrow[]=new int[M];
+        int sum=0;
+        int max=Integer.MIN_VALUE;;
 
-    //     for(int i=0;i<M;i++){
-    //         sum=0;
-    //         for(int j=0;j<N;j++){
-    //             sum+=matrix[i][j];
-    //             sumrow[i]=sum;
-    //         }
-    //     }
-    //     for(int k=1;k<M;k++){
-    //         if(sumrow[k]>sumrow[k-1]){
-    //         max=sumrow[k];
-    //         }
-    //     }
-    //     for(int i=0;i<M;i++){
-    //         if(max==sumrow[i]){
-    //             return i;
-    //         }
-    //     }
-    //     return -1;
-    // }
+        for(int i=0;i<M;i++){
+            sum=0;
+            for(int j=0;j<N;j++){
+                sum+=matrix[i][j];
+                sumrow[i]=sum;
+            }
+        }
+        for(int k=1;k<M;k++){
+            if(sumrow[k]>sumrow[k-1]){
+            max=sumrow[k];
+            }
+        }
+        for(int i=0;i<M;i++){
+            if(max==sumrow[i]){
+                return i;
+            }
+        }
+        return -1;
+    }
 
     /* -------------------------------------------------------------------
        🧩 Problem 5: Search in Sorted Matrix
@@ -176,20 +176,20 @@ public class TwoDArrayProblems {
        13 15 17
        Output: true
     ------------------------------------------------------------------- */
-    // public static boolean searchInSortedMatrix(int[][] matrix, int target) {
-    //     int M=matrix.length;
-    //     int N=matrix[0].length;
-    //     int X=target;
+    public static boolean searchInSortedMatrix(int[][] matrix, int target) {
+        int M=matrix.length;
+        int N=matrix[0].length;
+        int X=target;
 
-    //     for(int i=0;i<M;i++){
-    //         for(int j=0;j<N;j++){
-    //             if(matrix[i][j]==target){
-    //                 return true;
-    //             }
-    //         }
-    //     }
-    //     return false;
-    // }
+        for(int i=0;i<M;i++){
+            for(int j=0;j<N;j++){
+                if(matrix[i][j]==target){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     /* -------------------------------------------------------------------
        🧩 Problem 6: Transpose of Matrix
@@ -204,19 +204,19 @@ public class TwoDArrayProblems {
        2 5
        3 6
     ------------------------------------------------------------------- */
-    // public static int[][] transposeMatrix(int[][] matrix) {
-    //     int M=matrix.length;
-    //     int N=matrix[0].length;
-    //     int transposematrix [][]=new int[N][M];
+    public static int[][] transposeMatrix(int[][] matrix) {
+        int M=matrix.length;
+        int N=matrix[0].length;
+        int transposematrix [][]=new int[N][M];
 
-    //     for(int i=0;i<M;i++){
-    //         for(int j=0;j<N;j++){
-    //             transposematrix[j][i]=matrix[i][j];
-    //         }
-    //     }
+        for(int i=0;i<M;i++){
+            for(int j=0;j<N;j++){
+                transposematrix[j][i]=matrix[i][j];
+            }
+        }
         
-    //     return transposematrix;
-    // }
+        return transposematrix;
+    }
 
     /* -------------------------------------------------------------------
        🧩 Problem 7: Boundary Traversal
@@ -230,42 +230,42 @@ public class TwoDArrayProblems {
        13 14 15 16
        Output: [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5]
     ------------------------------------------------------------------- */
-    // public static int[] boundaryTraversal(int[][] matrix) {
-    //     int M=matrix.length;
-    //     int N=matrix[0].length;
-    //     int boundary[]=new int[2*(M+N)-4];
-    //     int idx=0;
-    //     int top=0;
-    //     int left=0;
-    //     int right=N-1;
-    //     int bottom=M-1;
+    public static int[] boundaryTraversal(int[][] matrix) {
+        int M=matrix.length;
+        int N=matrix[0].length;
+        int boundary[]=new int[2*(M+N)-4];
+        int idx=0;
+        int top=0;
+        int left=0;
+        int right=N-1;
+        int bottom=M-1;
 
-    //     for(int i=left;i<=right;i++){
-    //        boundary[idx]=matrix[top][i];
-    //        idx++;
-    //         }
-    //         top++;
+        for(int i=left;i<=right;i++){
+           boundary[idx]=matrix[top][i];
+           idx++;
+            }
+            top++;
         
-    //     for(int i=top;i<=bottom;i++){
-    //        boundary[idx]=matrix[i][right];
-    //        idx++;
-    //         }
-    //         right--;
+        for(int i=top;i<=bottom;i++){
+           boundary[idx]=matrix[i][right];
+           idx++;
+            }
+            right--;
         
-    //     for(int i=right;i>=left;i--){
-    //         boundary[idx]=matrix[bottom][i];
-    //         idx++;
-    //     }
-    //     bottom--;
+        for(int i=right;i>=left;i--){
+            boundary[idx]=matrix[bottom][i];
+            idx++;
+        }
+        bottom--;
 
-    //      for(int i=bottom;i>=top;i--){
-    //         boundary[idx]=matrix[i][left];
-    //         idx++;
-    //      }
+         for(int i=bottom;i>=top;i--){
+            boundary[idx]=matrix[i][left];
+            idx++;
+         }
         
         
-    //     return boundary;
-    // }
+        return boundary;
+    }
 
     /* -------------------------------------------------------------------
        🧩 Problem 8: Saddle Point in Matrix
