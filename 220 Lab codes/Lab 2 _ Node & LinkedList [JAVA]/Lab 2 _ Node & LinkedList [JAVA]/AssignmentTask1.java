@@ -5,14 +5,38 @@ public class AssignmentTask1 {
     //and a String is expected as return
     // After you're done coding  MUST SUBMIT this method
     public static String checkSimilar( Node building1, Node building2 ){
-        
-        //You're not suppose to create any new Linked List for this task
-        
-        //TODO
-
-        //Once you're ready to return the String delete the following line
-        return null;
+        int c1=1;
+        int c2=1;
+        Node h1=building1;
+        Node h2=building2;
+        while(building1.next!=null){
+            building1=building1.next;
+            c1++;
+        }
+        while(building2.next!=null){
+            building2=building2.next;
+            c2++;
+        }
+        if(c1==c2){
+        while(h1!=null || h2!=null){
+            if(h1.elem==h2.elem){
+                h1=h1.next;
+                h2=h2.next;
+            }
+            else{
+                return "Not Similar";
+            }
+        }
+        return "Similar";
+    }   
+    
+    else{
+         return "Not Similar";
     }
+}
+ 
+    
+
 
     //NOTE: if you find any issue with the driver code please inform AIB
     //DO NOT TOUCH THE DRIVER CODE BELOW
