@@ -4,10 +4,35 @@ public class AssignmentTask2{
     
     // MUST SUBMIT this method
     public static Node organizeBooks(Node head, Integer[] popularity) {
-        
-        //TO DO
+       int N=popularity.length;
+       
+       for(int i=0;i<N-1;i++){
+       Node current=head;
+       Node previous=null;
 
-        return null; // Remove this when you're ready to return the new head
+        for(int j=0;j<N-1-i;j++){
+            Node next=current.next;
+
+            if(popularity[j]<popularity[j+1]){
+                int temp=popularity[j];
+                popularity[j]=popularity[j+1];
+                popularity[j+1]=temp;
+
+                    if(previous!=null){
+                        previous.next=next;
+                    }
+                    else{
+                        head=next;
+                    }
+                    current.next=next.next;
+                    next.next=current;
+                }
+            
+            previous=current;
+            current=next;
+        }
+       }
+       return head;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
