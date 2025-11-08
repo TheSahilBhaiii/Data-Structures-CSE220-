@@ -2,8 +2,47 @@ public class AssignmentTask6 {
 
     //SUBMIT ONLY THIS METHOD
     public static void pairJoin(DNode dh1, DNode dh2) {
-        // TO DO
-    }
+        DNode h1=dh1.next;
+        DNode h2=dh2.next;
+
+        DNode dummy=new DNode(0);
+        DNode current=dummy;
+
+        while(h1!=null && h2!=null){
+            current.next=h1;
+            h1.prev=current;
+            current=current.next;
+            h1=h1.next;
+            
+            current.next=h2;
+            h2.prev=current;
+            current=current.next;
+            h2=h2.next;
+        }
+        while(h1!=null){
+            current.next=h1;
+            h1.prev=current;
+            current=current.next;
+            h1=h1.next;
+        }
+        while(h2!=null){
+            current.next=h2;
+            h2.prev=current;
+            current=current.next;
+            h2=h2.next;
+        }
+            if(dummy.next!=null){
+                DNode firstNode=dummy.next;
+                DNode lastNode=current;
+                firstNode.prev=lastNode;
+                lastNode.next=firstNode;
+            }
+            dh1.next=dummy.next;
+            if(dummy.next!=null){
+                dummy.next.prev=dh1;
+            }
+        }
+    
 
     //DO NOT SUBMIT THE DRIVER CODE BELOW
     //SUBMITTING IT WILL INCREASE YOUR PLAG % FOR NO REASON
