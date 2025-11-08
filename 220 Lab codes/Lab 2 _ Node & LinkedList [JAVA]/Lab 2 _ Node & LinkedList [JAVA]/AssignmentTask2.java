@@ -5,9 +5,53 @@ public class AssignmentTask2{
     // MUST SUBMIT this method
     public static Node organizeBooks(Node head, Integer[] popularity) {
         
-        //TO DO
+        boolean flag=true;
+        while(flag==true){
+            flag=false;
+            int idx=0;
+            Node previous=null;
+            Node current=head;
 
-        return null; // Remove this when you're ready to return the new head
+            while(current!=null && current.next!=null){
+                if(popularity[idx]>popularity[idx+1]){
+                    Node t=current.next;
+                    if(previous==null){
+                        head=t;
+                    }
+                    else{
+                        previous.next=t;
+                    }
+                    current.next=t.next;
+                    t.next=current;
+
+                    int temp=popularity[idx];
+                    popularity[idx]=popularity[idx+1];
+                    popularity[idx+1]=temp;
+
+                    flag=true;
+                    previous=t;
+                }
+                else{
+                    previous=current;
+                    current=current.next;
+                }
+                idx++;
+            }
+        }
+
+        Node prev=null;
+        Node current=head;
+        Node next=null;
+
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;
+
+        return head; // Remove this when you're ready to return the new head
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB

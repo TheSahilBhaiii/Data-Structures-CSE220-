@@ -2,8 +2,30 @@ public class AssignmentTask5 {
 
     //SUBMIT ONLY THIS METHOD
     public static void sumOddAppend(Node dh) {
-        // TO DO
+       Node temp=dh;
+       int sum=0;
+
+       while(temp.next!=dh){
+        if((int)temp.next.elem%2!=0){
+            sum+=(int)temp.next.elem;
+            temp.next=temp.next.next;
+        }
+        else{
+            temp=temp.next;
+        }
     }
+
+        Node sumNode=new Node(sum);
+        temp=dh;
+
+        while(temp.next!=dh){
+            temp=temp.next;
+        }
+        temp.next=sumNode;
+        sumNode.next=dh;
+
+       }
+    
 
     //DO NOT SUBMIT THE DRIVER CODE BELOW
     //SUBMITTING IT WILL INCREASE YOUR PLAG % FOR NO REASON

@@ -3,13 +3,23 @@ public class AssignmentTask3 {
     
     // MUST SUBMIT this method
     public static Node alternateMerge( Node head1, Node head2 ){
-        
-        //You’re NOT ALLOWED to create a new singly linked list for this task
+        Node h1=head1;
+        Node h2=head2;
+        while(h1.next!=null && h2.next!=null){
+            Node n1=h1.next;
+            Node n2=h2.next;
 
-        //TO DO
+            h1.next=h2;
+            if(n1==null){
+                h2.next=n2;
+                break;
+            }
+            h2.next=n1;
 
-        //remove the following line when returning the Head of the modified LinkedList
-        return null;
+            h1=n1;
+            h2=n2;
+        }
+        return head1;
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB

@@ -8,8 +8,47 @@ public class AssignmentTask4{
         //Hint: the Node elements are actually Object, you can type cast them
         //      into int or Integer like the following:
         //        (int)n.elem  or  (Integer)n.elem
+        Node prev=null;
+        Node current=head1;
+        Node next=null;
 
-        return null; // Remove this when you're ready to return the new head
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        Node h1=prev;
+
+        Node resultHead=new Node(0);
+        Node resultTail=resultHead;
+
+        Node tempNode1=h1;
+         while(tempNode1!=null){
+        Node newNode=new Node((int)tempNode1.elem);
+        resultTail.next=newNode;
+        resultTail=resultTail.next;
+        tempNode1=tempNode1.next;
+       }
+        Node tempNode2=head2;
+        Node tempNode3=head3;
+        
+        
+        while(tempNode2!=null && tempNode3!=null){
+                int sum=(int)tempNode2.elem+(int)tempNode3.elem;
+                if(sum>=10){
+                    sum=(sum%10);
+                }
+                Node newNode=new Node(sum);
+                resultTail.next=newNode;
+                resultTail=resultTail.next;
+
+                tempNode2=tempNode2.next;
+                tempNode3=tempNode3.next;
+        }
+      
+       return resultHead.next;
+        
     }
 
     //NOTE: if you find any issue with the driver code please inform AIB
