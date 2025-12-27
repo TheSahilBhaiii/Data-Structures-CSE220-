@@ -17,13 +17,4 @@ public class TaskScheduler{
         }
         return result;
     }
-
-    public static void main(String[] args) {
-        int[] tasks = {2, 4, 7, 1, 6};
-        int m = 4;
-        int[] result = scheduleTasks(tasks, m);
-        
-        for (int i = 0; i < m; i++) {
-            System.out.print(result[i] + " ");
-        }
 }
