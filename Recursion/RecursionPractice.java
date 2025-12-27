@@ -10,7 +10,7 @@ public class RecursionPractice {
           //print1ToN(n);
          //printNTo1(n);
          //print1ToN_Backtrack(n);
-        printNTo1_Backtrack(n);
+        //printNTo1_Backtrack(n);
 
         // ----------------------------------------------------------------
     }

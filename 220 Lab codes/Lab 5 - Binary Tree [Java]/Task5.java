@@ -8,8 +8,18 @@ public class Task5 {
     // At times you may need to typeCast root.elem to Integer
     // You can use extra helper private static methods with extra extra params as per need
     public static Integer subtractSummation( BTNode root ){
-        //TO DO
-        return null; //remove this line
+        if(root==null){
+            return 0;
+        }
+        return sumTree(root.left)-sumTree(root.right);
+    }
+
+    private static int sumTree(BTNode node){
+        if(node==null){
+            return 0;
+        }
+        int value=(Integer)node.elem;
+        return value + sumTree(node.left) + sumTree(node.right);
     }
     //============================================================================
 
