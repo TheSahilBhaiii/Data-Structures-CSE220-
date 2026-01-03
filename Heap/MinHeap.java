@@ -1,10 +1,12 @@
 public class MinHeap{
-    private int[] H;
+    private Object[] H;
     private int size;
+    private int level;
 
     MinHeap(int L){
-        H=new int[(int)Math.pow(2,L)];
+        H=new Object[2*Math.pow(L)];
         size=0;
+        level=L;
     }
     public void swap(int[]arr,int i,int j){
         int temp=arr[i];
@@ -22,7 +24,7 @@ public class MinHeap{
             return;
         }
         else if(H[p]>H[idx]){
-            swap(H,p,idx);
+            swap(H[p],H[idx]);
             swim(p);
         }
     }
