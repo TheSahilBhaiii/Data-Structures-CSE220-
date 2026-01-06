@@ -8,8 +8,20 @@ public class Task4 {
     // second one the low range and third one is high range
     // You can use extra helper private static methods as per need
     public static Integer rangeSum( BSTNode root, Integer low, Integer high ){
-        //TO DO
-        return null; // remove this line
+        if(root==null){
+            return 0;
+        }
+        int value=(Integer)root.elem;
+
+        if(value<low){
+            return rangeSum(root.right, low, high);
+        }
+        else if(value>high){
+            return rangeSum(root.left, low, high);
+        }
+        else{
+            return value+rangeSum(root.left, low, high)+rangeSum(root.right, low, high);
+        }
     }
     //===============================================================
 
