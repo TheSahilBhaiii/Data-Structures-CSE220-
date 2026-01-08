@@ -1,34 +1,47 @@
 public class GraphDemo {
     public static void main(String[] args) {
-        int[][] adjMatrix={
-                {0, 1, 1, 1, 1, 1, 1}, 
-                {1, 0, 1, 0, 0, 0, 0}, 
-                {1, 1, 0, 1, 0, 1, 0}, 
-                {1, 0, 1, 0, 1, 0, 0}, 
-                {1, 0, 0, 1, 0, 1, 0}, 
-                {1, 0, 1, 0, 1, 0, 1}, 
-                {1, 0, 0, 0, 0, 1, 0}  
+        
+        System.out.println("--- SETUP: Undirected Graph ---");
+        int[][] undirectedMatrix = {
+            {0, 5, 0},
+            {5, 0, 10},
+            {0, 10, 0}
+        }; 
+
+        int V = 3;
+        EdgeNode[] undirectedList = new EdgeNode[V];
+        GraphUtils.addEdge(undirectedList, 0, 1, 5);
+        GraphUtils.addEdge(undirectedList, 1, 2, 10);
+
+        
+        System.out.println("\n--- TASK 2: Max Weight Vertex (Undirected) ---");
+        GraphUtils.task2a_MaxWeightVertexMatrix(undirectedMatrix);
+        GraphUtils.task2b_MaxWeightVertexList(undirectedList);
+
+
+        System.out.println("\n--- SETUP: Directed Graph ---");
+        int[][] directedMatrix = {
+            {0, 3, 0},
+            {2, 0, 4},
+            {0, 0, 0}
         };
-        int V = 5; // number of vertices
-        EdgeNode[] adjList = new EdgeNode[V]; // array of adjacency lists
+        
+        EdgeNode[] directedList = new EdgeNode[V];
+        GraphUtils.addEdgeDirected(directedList, 0, 1, 3);
+        GraphUtils.addEdgeDirected(directedList, 1, 0, 2);
+        GraphUtils.addEdgeDirected(directedList, 1, 2, 4);
 
-        // Add edges (undirected)
-        GraphUtils.addEdge(adjList, 1, 3, 0);
-        GraphUtils.addEdge(adjList, 1, 4, 0);
-        GraphUtils.addEdge(adjList, 1, 5, 0);
-        GraphUtils.addEdge(adjList, 1, 2, 0);
-        GraphUtils.addEdge(adjList, 1, 7, 0);
-        GraphUtils.addEdge(adjList, 1, 6, 0);
-        GraphUtils.addEdge(adjList, 2, 3, 0);
-        GraphUtils.addEdge(adjList, 3, 4, 0);
-        GraphUtils.addEdge(adjList, 4, 5, 0);
-        GraphUtils.addEdge(adjList, 5, 6, 0);
-        GraphUtils.addEdge(adjList, 6, 7, 0);
-        GraphUtils.addEdge(adjList, 3, 6, 0);
-
-        // Show adjacency list
-        System.out.println("Adjacency List Representation:");
-        GraphUtils.showAdjList(adjList);
+        System.out.println("Directed Adjacency List:");
+        GraphUtils.showAdjList(directedList);
+        System.out.println("\n--- TASK 3: Max Outgoing Weight Vertex (Directed) ---");
+        GraphUtils.task3a_MaxOutWeightVertexMatrix(directedMatrix);
+        GraphUtils.task3b_MaxOutWeightVertexList(directedList);
+        System.out.println("\n--- TASK 4: Convert Directed to Undirected ---");
+        int[][] convertedMatrix = GraphUtils.task4a_ConvertToUndirectedMatrix(directedMatrix);
+        System.out.println("Converted Matrix (Expected: 0-1 weight should be 3+2=5):");
+        GraphUtils.showAdjMatrix(convertedMatrix);
+        EdgeNode[] convertedList = GraphUtils.task4b_ConvertToUndirectedList(directedList);
+        System.out.println("Converted List (Expected: 0->1 w:5, 1->0 w:5, 1->2 w:4, 2->1 w:4):");
+        GraphUtils.showAdjList(convertedList);
     }
-
 }
